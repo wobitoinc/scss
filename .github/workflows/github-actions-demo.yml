@@ -66,7 +66,7 @@ jobs:
       - name: Prepare Docker
         id: docker_prep
         run: |
-          DOCKER_IMAGE=skifdh/test
+          DOCKER_IMAGE=adrianwobito/test
           UNIQUE_TAG="`git describe | sed -e 's/^v//'`"
           VERSION=${GITHUB_SHA}
           if [[ $GITHUB_REF == refs/tags/* ]]; then
