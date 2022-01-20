@@ -115,21 +115,21 @@ jobs:
           TAGS: ${{ steps.docker_prep.outputs.image }}@${{ steps.docker_build.outputs.digest }}
           COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
 
-      - name: Coverage
-        working-directory: ./src
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        run: make coverage-out
+#       - name: Coverage
+#         working-directory: ./src
+#         env:
+#           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+#         run: make coverage-out
 
-      - name: Upload Code Coverage
-        uses: codecov/codecov-action@v2.1.0
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./src/coverage.out
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: true
-          verbose: true
+#       - name: Upload Code Coverage
+#         uses: codecov/codecov-action@v2.1.0
+#         with:
+#           token: ${{ secrets.CODECOV_TOKEN }}
+#           files: ./src/coverage.out
+#           flags: unittests
+#           name: codecov-umbrella
+#           fail_ci_if_error: true
+#           verbose: true
 
   release:
     name: release
