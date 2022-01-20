@@ -301,7 +301,7 @@ jobs:
       - name: Generate oci artifact SBOM
         uses: anchore/sbom-action@v0
         with:
-          image: skifdh/test@${{ needs.build.outputs.image_digest }}
+          image: adrianwobito/test@${{ needs.build.outputs.image_digest }}
           # TODO: after sbom-actions uses syft version v0.32.0, we can switch to cyclonedx-json output format
           format: cyclonedx
           artifact-name: oci-sbom.xml
